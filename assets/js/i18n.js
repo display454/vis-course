@@ -75,8 +75,11 @@ let locale = DEFAULT;
 const listeners = new Set();
 
 export function setLocale(next) {
-  locale = (next === 'en-US' || next === 'zh') ? 'en-US' : 'zh-CN';
+  locale = (next === 'en-US' || next === 'en') ? 'en-US' : 'zh-CN';
   try { localStorage.setItem(KEY, locale); } catch (e) {}
+  const url = new URL(location.href);
+  url.searchParams.set('lang', locale === 'en-US' ? 'en' : 'zh');
+  history.replaceState(null, '', url);
   document.documentElement.lang = locale === 'en-US' ? 'en' : 'zh-CN';
   listeners.forEach(fn => fn(locale));
   const sw = document.querySelectorAll('[data-lang-btn]');

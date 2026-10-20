@@ -263,7 +263,7 @@ D['d04-3'] = async (mount, { d3, data, lang, accent }) => {
   });
   ui.showControls();
   const W = 760, MW = 760, MH = 120, mp = 34;
-  const CW = 146, CH = 132, cols = 5, gap = 8;
+  const CW = 142, CH = 132, cols = 5, gap = 8;
   const H = MH + 12 + 2 * CH + 26;
   const root = svg(d3, ui.stage, W, H);
   // 控制点（初始数据）

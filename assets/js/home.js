@@ -32,6 +32,7 @@ let heroTimer = null;
 function main() {
   initLocale();
   bindSearch();       // 检索只绑定一次，内部按当前语言取文案
+  onLocale(() => renderAll());
   renderAll();
 }
 
@@ -357,8 +358,6 @@ function bindFooter() {
       <div class="meta">${t('footerMeta')}</div></div>`;
   };
   draw();
-  // 首页语言切换：数据驱动整体重渲染（检索仅绑定一次）
-  onLocale(() => renderAll());
 }
 
 main();
