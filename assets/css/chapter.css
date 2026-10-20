@@ -1,0 +1,41 @@
+/* ============================================================
+   chapter.css — 章节页专属补充（代码视图 / 演示视图 / 章末）
+   ============================================================ */
+
+/* 代码视图：每个关键代码段一张卡 */
+.code-seg { margin-bottom: var(--sp-10); }
+.code-seg > .seg-title { display: flex; align-items: center; gap: 10px; font-size: var(--fs-base);
+  font-weight: 700; margin: 0 0 var(--sp-3); color: var(--ink-1); font-family: var(--font-display); }
+.code-seg > .seg-title .star {
+  width: 26px; height: 26px; border-radius: var(--r-control); background: var(--key-bg); color: var(--key-fg);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 13px;
+  font-family: var(--font-mono); font-weight: 700; flex: none; border: 1px solid var(--key-bd);
+}
+.code-seg .seg-desc { font-size: var(--fs-sm); color: var(--ink-2); margin-bottom: var(--sp-4); max-width: var(--measure); }
+
+/* 演示视图：每段演示带序号 */
+.demo-seg { margin-bottom: var(--sp-10); }
+.demo-seg > .seg-title { font-size: var(--fs-lg); font-weight: 700; margin: 0 0 var(--sp-4);
+  display: flex; align-items: center; gap: 10px; font-family: var(--font-display); color: var(--ink-1); }
+.demo-seg > .seg-title .dno {
+  width: 28px; height: 28px; border-radius: var(--r-control); background: var(--accent); color: var(--on-accent);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px;
+  font-family: var(--font-mono); font-weight: 700; flex: none; box-shadow: var(--shadow-accent);
+}
+
+/* 讲解视图：小标题 */
+.lesson-content h4 { font-size: var(--fs-lg); margin: var(--sp-8) 0 var(--sp-3); }
+.lesson-content .block-h { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 700;
+  color: var(--ink-1); margin: var(--sp-5) 0 var(--sp-2); }
+
+/* 视图切换提示（讲解中跳代码 / 演示） */
+.jump-tabs { display: inline-flex; gap: 8px; flex-wrap: wrap; margin: var(--sp-3) 0; }
+.jump-tabs button {
+  font: inherit; font-size: var(--fs-xs); font-weight: 700; padding: 6px 14px; border-radius: var(--r-pill);
+  background: var(--bg); border: 1px solid var(--accent-bd); color: var(--accent); cursor: pointer;
+  transition: all var(--t-fast);
+}
+.jump-tabs button:hover { background: var(--accent-soft); }
+
+/* 平板/移动端：侧栏折叠（与 components.css 的 1023 断点一致），tab 吸顶让出导航高度 */
+@media (max-width: 1023px) { .tabs { top: var(--nav-h); } }
